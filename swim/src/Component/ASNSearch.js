@@ -19,7 +19,7 @@ class ASNSearch extends React.Component {
       axios({
          method: 'post',
          headers: {"Access-Control-Allow-Origin": "*"},
-         url: "http://localhost:8080/getSerial",
+         url: "http://localhost:8081/getSerial",
          data: {
             asn
          }
@@ -38,7 +38,6 @@ class ASNSearch extends React.Component {
    		visibility: 'hidden'
    	}
    	let {doorNumber} = this.props;
-   	let {asnDisplay} = this.props;
 
    	if(doorNumber > 0){
    		styles = null;
@@ -58,7 +57,7 @@ class ASNSearch extends React.Component {
 	      	<form>
 	      		<label>Enter an ASN: </label>
 	      		<input type="text" placeholder="Search.." id="asn" />
-	      		<button className="search-btn" onClick= {this.handleRequest} >Search</button>
+	      		<button className="search-btn btn btn-sm btn-secondary" onClick= {this.handleRequest} >Search</button>
 	      	</form>
 	      	<ASNDisplay serialNumbers={this.state.serialNumbers} asn ={this.state.asn} dockDoor={this.props.doorNumber} /> 
 	      	</div>

@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import DockDoor from './DockDoor';
 import ASNDisplay from './ASNDisplay';
+
  
 class Home extends Component {
 	constructor(props) {
@@ -17,6 +18,7 @@ class Home extends Component {
 		this.handleClick = this.handleClick.bind(this);
 		this.outboundRequest = this.outboundRequest.bind(this);
 	}
+	
 	handleClick() {
 		this.props.history.push("./receiving");
 		this.setState({
@@ -32,27 +34,16 @@ class Home extends Component {
   render() {
   	
     return (
-        <div className="home">
-			
-
-			<div className="middle">
-				<div className="receive-btn">
-					<button className="home-btn" onClick={this.handleClick}>Receiving</button>
+        <div className="home row">
+				<div className="col-sm-4 backgroundBtn">
+					<button className="receiveBtn homeBtn btn btn-secondary" onClick={this.handleClick}>Receiving</button>
 				</div>
-
-				<div className="outbound-btn">
-					<button className="home-btn" onClick={this.outboundRequest}>Outbound</button>
+				<div className="col-sm-4 backgroundBtn">
+					<button className="outboundBtn homeBtn btn btn-secondary" onClick={this.outboundRequest}>Outbound</button>
 				</div>
-			</div>
-
-			
-         
-          
         </div>
     );
   }
-
-  
 }
 
 
