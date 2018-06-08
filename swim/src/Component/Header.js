@@ -10,7 +10,7 @@ class Header extends React.Component {
    
 	      return (
 
-        <div className="header">
+        <div className="header row">
         	<div className="row">
 	         	<div className="col-sm-1 logo">
 	         		<Link to = "/"><img className= "logoImg" src={swim} /></Link>

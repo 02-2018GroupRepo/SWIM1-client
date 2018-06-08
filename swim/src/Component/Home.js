@@ -35,16 +35,12 @@ class Home extends Component {
   	
     return (
         <div className="home row">
-			
-			<div className="middle">
-				<div className="receive-btn">
-					<button className="home-btn" onClick={this.handleClick}>Receiving</button>
+				<div className="col-sm-4 backgroundBtn">
+					<button className="receiveBtn homeBtn btn btn-secondary" onClick={this.handleClick}>Receiving</button>
 				</div>
-
-				<div className="outbound-btn">
-					<button className="home-btn" onClick={this.outboundRequest}>Outbound</button>
+				<div className="col-sm-4 backgroundBtn">
+					<button className="outboundBtn homeBtn btn btn-secondary" onClick={this.outboundRequest}>Outbound</button>
 				</div>
-			</div>
         </div>
     );
   }

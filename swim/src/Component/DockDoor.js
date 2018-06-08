@@ -20,7 +20,7 @@ class DockDoor extends React.Component {
 	      return (
 	      	<div className="dock-door">
 	      	<form>
-		      	<label>Select Dock Door</label>
+		      	<label>Select Dock Door: </label>
 		      		<select onChange={this.selected('selectDoor')}>
 		      			<option value="0">Select</option>
 		      			<option value="1">1</option>

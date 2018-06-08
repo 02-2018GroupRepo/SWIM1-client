@@ -27,6 +27,8 @@
   height: 75px;
   margin-top: 10px;
   margin-bottom:10px;
+  display: inline-block;
+  float:left;
 }
 
 .divider {
@@ -44,11 +46,11 @@
   float:left;
   margin-top: 20px;
   margin-bottom: 0px !important;
+
 }
 .footerDivider{
   height: 4px;
   background-color: #024771;
-  margin: 0px;
 }
 .textSize{
   font-size:8px;
@@ -58,9 +60,67 @@
   font-size:10px;
   margin-bottom:0px;
 }
-.footer{
-  position: fixed;
-  bottom:0;
-  width: 100%;
-  height: 60px;
+
+.home{
+  margin-top: 10px;
 }
+.homeBtn{
+  font-size: 40px;
+  background-color: white;
+  color: #024771;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.homeBtn:hover{
+  background-color: #024771;
+  color: white;
+}
+
+.dock-door{
+  margin-top: 15px;
+}
+
+.dock-door label{
+  margin-right: 10px;
+}
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+.container{
+  position: relative;
+  min-height: 100vh;
+}
+.asn-search{
+  margin-top:10px;
+}
+.asn-search input{
+  margin-right:10px;
+}
+.saveBtn{
+  margin:5px;
+}
+.selectBtn{
+  margin: 5px;
+}
+.buttonClass{
+  margin-top: 10px;
+  border: 5px ;
+}
+.tableSerials{
+  margin-top: 10px;
+}
+.backgroundBtn{
+  border:5px solid #0678BE;
+  border-radius: 5px;
+  margin:10px;
+  height: 125px;
+}
+.backgroundBtn button{
+  margin-top: 20px;
+}
+
+  
+
+
+
