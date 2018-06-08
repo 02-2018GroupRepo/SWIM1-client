@@ -5,6 +5,7 @@ import Footer from './Component/Footer';
 import DockDoor from './Component/DockDoor';
 import ASNSearch from './Component/ASNSearch';
 import ASNDisplay from './Component/ASNDisplay';
+import ASNReceived from './Component/ASNReceived';
 import { Route, Link } from 'react-router-dom';
 import './index.css';
 
@@ -14,9 +15,8 @@ class App extends Component {
       <div className="App">
         <Route path="/" component={Header} />
         <Route exact path="/" component={Home} />
-        <Route exact path= "/DockDoor" component={DockDoor} />
-        <Route exact path= "/ASNSearch" component={ASNSearch} />
-        <Route exact path= "/ASNDisplay" component={ASNDisplay} />
+        <Route exact path= "/receiving" component={DockDoor} />
+        <Route exact path="/outbound" component={ASNReceived} />
         <Route path="/" component={Footer} />
       </div>
     );

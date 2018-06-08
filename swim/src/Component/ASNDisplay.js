@@ -7,8 +7,10 @@ class ASNDisplay extends React.Component {
 		this.state = {
 			checkBox: []
 		}
+		this.sendData = this.sendData.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.formatData = this.formatData.bind(this);
+		this.selectAll = this.selectAll.bind(this);
 	}
 
 	onChange(e){
@@ -30,13 +32,54 @@ class ASNDisplay extends React.Component {
 		})
 	}
 
+	selectAll(event){
+		event.preventDefault();
+		for(let i = 0; i < this.props.serialNumbers.length; i++){
+			document.getElementById(this.props.serialNumbers[i].serial).checked = true;
+		}
+					
+
+	}
+
+	sendData(event){
+		event.preventDefault();
+		const asn = this.props.asn;
+		const dockDoor = this.props.dockDoor;
+		let fserials = this.props.serialNumbers;
+		let serials = fserials.map((serial)=>{
+			let status;
+			if(this.state.checkBox.indexOf(Number(serial.serial)) > -1){
+				status = "RECEIVED"
+			}
+			else{
+				status = "IN TRANSIT"
+			}
+			return {
+				serial: serial.serial,
+				status: status
+			}
+		})
+
+
+		axios({
+        method: 'post',
+        headers: {"Access-Control-Allow-Origin": "*"},
+        url: "http://localhost:8080/statusChange",
+        data: {
+           asn,
+           dockDoor,
+           serials
+        }
+      })
+	}
+
 	formatData(){
 		let array = this.props.serialNumbers
 
 		return array.map((data, idx)=>
 			<tr key={idx}>
 				<td>{data.serial}</td>
-				<td><input type="checkbox" className="checkbox-display" value={data.serial} onClick={this.onChange}></input></td>
+				<td><input type="checkbox" className="checkbox-display" value={data.serial} id={data.serial} onClick={this.onChange}></input></td>
 			</tr>
 
 		)
@@ -56,7 +99,8 @@ class ASNDisplay extends React.Component {
 	      			
 	      		</table>
 
-	      		<button onClick={this.onChange}>Save</button>
+	      		<button onClick={this.sendData}>Save</button>
+	      		<button onClick={this.selectAll}>Select All</button>
 
 	      	</div>
    	

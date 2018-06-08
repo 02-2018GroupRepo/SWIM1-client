@@ -15,15 +15,19 @@ class Home extends Component {
 		};
 
 		this.handleClick = this.handleClick.bind(this);
+		this.outboundRequest = this.outboundRequest.bind(this);
 	}
 	handleClick() {
-		this.props.history.push("./DockDoor");
+		this.props.history.push("./receiving");
 		this.setState({
 			clicked: true,
 			show: false
 
 
 		});
+	}
+	outboundRequest(){
+		this.props.history.push("./outbound")
 	}
   render() {
   	
@@ -37,7 +41,7 @@ class Home extends Component {
 				</div>
 
 				<div className="outbound-btn">
-					<button className="home-btn">Outbound</button>
+					<button className="home-btn" onClick={this.outboundRequest}>Outbound</button>
 				</div>
 			</div>
 

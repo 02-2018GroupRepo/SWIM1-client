@@ -6,7 +6,8 @@ class ASNSearch extends React.Component {
    constructor(){
       super();
       this.state = {
-         serialNumbers: []
+         serialNumbers: [],
+         asn: ""
       }
       this.handleRequest = this.handleRequest.bind(this);
    }
@@ -25,7 +26,8 @@ class ASNSearch extends React.Component {
       }).then(results => {
          console.log(results);
          this.setState({
-            serialNumbers : results.data
+            serialNumbers : results.data,
+            asn: asn
          })
 
       })
@@ -58,7 +60,7 @@ class ASNSearch extends React.Component {
 	      		<input type="text" placeholder="Search.." id="asn" />
 	      		<button className="search-btn" onClick= {this.handleRequest} >Search</button>
 	      	</form>
-	      	<ASNDisplay serialNumbers = {this.state.serialNumbers}/> 
+	      	<ASNDisplay serialNumbers={this.state.serialNumbers} asn ={this.state.asn} dockDoor={this.props.doorNumber} /> 
 	      	</div>
        
       );
