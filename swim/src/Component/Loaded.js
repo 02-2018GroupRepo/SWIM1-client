@@ -1,15 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import ASNDisplay from './ASNDisplay';
 
-class ASNDisplay extends React.Component {
+class Loaded extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			checkBox: []
+			checkBox: [],
+			serialNumbers: [],
+			details: ""
 		}
 		this.sendData = this.sendData.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.formatData = this.formatData.bind(this);
 		this.selectAll = this.selectAll.bind(this);
 	}
 
@@ -34,8 +36,10 @@ class ASNDisplay extends React.Component {
 
 	selectAll(event){
 		event.preventDefault();
-		for(let i = 0; i < this.props.serialNumbers.length; i++){
-			document.getElementById(this.props.serialNumbers[i].serial).checked = true;
+		for(let i = 0; i < this.state.serialNumbers.length; i++){
+			document.getElementById(this.state.serialNumbers[i].serial).checked = true;
+			console.log("doing this");
+			console.log(this.props.location.state.asn)
 		}
 					
 
@@ -43,16 +47,17 @@ class ASNDisplay extends React.Component {
 
 	sendData(event){
 		event.preventDefault();
-		const asn = this.props.asn;
-		const dockDoor = this.props.dockDoor;
-		let fserials = this.props.serialNumbers;
+		const asn = this.props.location.state.asn;
+		const dockDoor = 0;
+		
+		let fserials = this.state.serialNumbers;
 		let serials = fserials.map((serial)=>{
 			let status;
 			if(this.state.checkBox.indexOf(Number(serial.serial)) > -1){
-				status = "RECEIVED"
+				status = "LOADED"
 			}
 			else{
-				status = "IN TRANSIT"
+				status = "RECEIEVED"
 			}
 			return {
 				serial: serial.serial,
@@ -73,21 +78,27 @@ class ASNDisplay extends React.Component {
       })
 	}
 
-	formatData(){
-		let array = this.props.serialNumbers
+	receivedData(){
+		let array = this.state.serialNumbers
 
 		return array.map((data, idx)=>
 			<tr key={idx}>
 				<td>{data.serial}</td>
-				<td><input type="checkbox" className="checkbox-display" value={data.serial} id={data.serial} onClick={this.onChange}></input></td>
+				<td><input type="checkbox" id={data.serial} value={data.serial} /></td>
 			</tr>
 
 		)
-		// console.log(this.state.checkBox);
+		
 	}
-	  
+
+	
 
    render() {
+   	if(this.state.serialNumbers.length == 0){
+   		this.setState({
+			serialNumbers: JSON.parse(this.props.location.state.details)
+		})
+   	}
 	      return (
 	      	<div className="received-table">
 	      		<table>
@@ -95,7 +106,8 @@ class ASNDisplay extends React.Component {
 	      				<th>Serial No.</th>
 	      				<th>Received?</th>
 	      			</tr>
-	      			{this.formatData()}
+	      			{this.receivedData()}
+
 	      			
 	      		</table>
 
@@ -105,6 +117,6 @@ class ASNDisplay extends React.Component {
 	      	</div>
    	
       );
-   }
+   }	
 }
-export default ASNDisplay
+export default Loaded;

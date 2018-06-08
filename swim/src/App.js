@@ -6,6 +6,7 @@ import DockDoor from './Component/DockDoor';
 import ASNSearch from './Component/ASNSearch';
 import ASNDisplay from './Component/ASNDisplay';
 import ASNReceived from './Component/ASNReceived';
+import Loaded from './Component/Loaded';
 import { Route, Link } from 'react-router-dom';
 import './index.css';
 
@@ -17,6 +18,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path= "/receiving" component={DockDoor} />
         <Route exact path="/outbound" component={ASNReceived} />
+        <Route exact path="/serial" component={Loaded} />
         <Route path="/" component={Footer} />
       </div>
     );
