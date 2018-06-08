@@ -8,11 +8,12 @@ import ASNDisplay from './Component/ASNDisplay';
 import ASNReceived from './Component/ASNReceived';
 import { Route, Link } from 'react-router-dom';
 import './index.css';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container App">
         <Route path="/" component={Header} />
         <Route exact path="/" component={Home} />
         <Route exact path= "/receiving" component={DockDoor} />
