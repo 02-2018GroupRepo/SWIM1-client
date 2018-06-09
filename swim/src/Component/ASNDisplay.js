@@ -34,11 +34,17 @@ class ASNDisplay extends React.Component {
 
 	selectAll(event){
 		event.preventDefault();
+		let checkBox = this.state.checkBox;
 		for(let i = 0; i < this.props.serialNumbers.length; i++){
 			document.getElementById(this.props.serialNumbers[i].serial).checked = true;
+			if((checkBox.indexOf(Number(this.props.serialNumbers[i].serial) == -1) && (this.state.checkBox.length < this.props.serialNumbers.length))){
+				checkBox.push(Number(this.props.serialNumbers[i].serial))
+			}
 		}
-					
-
+		this.setState({
+			checkBox: checkBox
+		})
+		console.log(checkBox);
 	}
 
 	sendData(event){
@@ -83,7 +89,7 @@ class ASNDisplay extends React.Component {
 			</tr>
 
 		)
-		console.log(this.state.checkBox);
+		// console.log(this.state.checkBox);
 	}
 	  
 

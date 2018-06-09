@@ -6,7 +6,12 @@ import DockDoor from './Component/DockDoor';
 import ASNSearch from './Component/ASNSearch';
 import ASNDisplay from './Component/ASNDisplay';
 import ASNReceived from './Component/ASNReceived';
+
 import Login from './Component/Login.js'
+
+import Loaded from './Component/Loaded';
+import SavedPage from './Component/SavedPage';
+
 import { Route, Link } from 'react-router-dom';
 import './index.css';
 import './App.css';
@@ -37,6 +42,8 @@ class App extends Component {
         <Route exact path="/" component={(props)=> <Home props={props} auth={this.state.isAuth} />} />
         <Route exact path= "/receiving" component={DockDoor} />
         <Route exact path="/outbound" component={ASNReceived} />
+        <Route exact path="/serial" component={Loaded} />
+        <Route exact path= "/dataSaved" component={SavedPage} />
         <Route path="/" component={Footer} />
       </div>
     );
