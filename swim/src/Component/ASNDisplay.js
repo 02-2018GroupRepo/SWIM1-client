@@ -117,7 +117,7 @@ class ASNDisplay extends React.Component {
 	      		</table>
 	      		</div>
 	      		<div className="col-sm-12 buttonClass">
-	      			<button className= "saveBtn bt btn-secondary" onClick={this.sendData}>Save</button>
+	      			<button className= "saveBtn btn btn-secondary" onClick={this.sendData}>Save</button>
 	      			<button className="selectBtn btn " onClick={this.selectAll}>Select All</button>
 	      		</div>
 	      	</div>

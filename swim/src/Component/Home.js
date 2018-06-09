@@ -20,7 +20,8 @@ class Home extends Component {
 	}
 	
 	handleClick() {
-		this.props.history.push("./receiving");
+		console.log(this.props.props.history)
+		this.props.props.history.push("./receiving");
 		this.setState({
 			clicked: true,
 			show: false
@@ -29,23 +30,40 @@ class Home extends Component {
 		});
 	}
 	outboundRequest(){
-		this.props.history.push("./outbound")
+		this.props.props.history.push("./outbound")
 	}
+	configureDD(){
+		console.log("configure Dock Door");
+	}
+
+	checkAdmin(){
+	if(localStorage.userType === "admin"){
+		return(
+					<div className="col-sm-12 backgroundBtn">
+						<button className="adminBtn homeBtn btn" onClick={this.configureDD}>Configure</button>
+					</div>
+			)
+		}
+	}
+
   render() {
-  	
-    return (
-        <div className="home row">
-				<div className="col-sm-4 backgroundBtn">
-					<button className="receiveBtn homeBtn btn btn-secondary" onClick={this.handleClick}>Receiving</button>
-				</div>
-				<div className="col-sm-4 backgroundBtn">
-					<button className="outboundBtn homeBtn btn btn-secondary" onClick={this.outboundRequest}>Outbound</button>
-				</div>
-        </div>
-    );
+  	if(this.props.auth){
+	    return (
+	        <div className="home row">
+					<div className="col-sm-6 backgroundBtn">
+						<button className="receiveBtn homeBtn btn" onClick={this.handleClick}>Receiving</button>
+					</div>
+					<div className="col-sm-6 backgroundBtn">
+						<button className="outboundBtn homeBtn btn" onClick={this.outboundRequest}>Outbound</button>
+					</div>
+					
+					{this.checkAdmin()}
+	        </div>
+	    );
+	}else{
+		return(<div></div>)
+	}
   }
 }
-
-
 
 export default Home;
