@@ -11,7 +11,6 @@ class Login extends Component{
 
 	handleLogin(event){
 		event.preventDefault();
-		let loginData = "admin";
 		const username = document.getElementById("username").value;
 		const pwd = document.getElementById("pwd").value;
 

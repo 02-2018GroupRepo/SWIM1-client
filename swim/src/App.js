@@ -25,6 +25,7 @@ class App extends Component {
       isAuth : false
     }
     this._isAuth = this._isAuth.bind(this);
+    this.loggingOut = this.loggingOut.bind(this);
   }
 
   _isAuth(){
@@ -33,12 +34,21 @@ class App extends Component {
       isAuth: true
     })
   }
+
+  loggingOut(){
+    console.log("log out in app")
+    this.setState({
+      isAuth: false
+    })
+      localStorage.setItem('userType', null);
+
+  }
   
   render() {
 
     return (
       <div className="container App">
-        <Route path="/" component={Header} />
+        <Route path="/" component={(props)=> <Header props={props} logOut={this.loggingOut}/>} />
         <Route path="/" component={ (props)=> <Login props={props} auth={this.state.isAuth} isAuth={this._isAuth} />} />
         <Route exact path="/" component={(props)=> <Home props={props} auth={this.state.isAuth} />} />
         <Route exact path= "/receiving" component={DockDoor} />
