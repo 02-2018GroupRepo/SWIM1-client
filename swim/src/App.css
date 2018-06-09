@@ -65,10 +65,14 @@
   margin-top: 10px;
 }
 .homeBtn{
-  font-size: 40px;
-  background-color: white;
+  font-size: 50px;
+  background-color: #FFFFF0;
   color: #024771;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  border-radius: 50px;
+  width: 350px;
+  height: 100px;
+  border: 2px solid #024771;
 }
 .homeBtn:hover{
   background-color: #024771;
@@ -110,17 +114,29 @@
 .tableSerials{
   margin-top: 10px;
 }
-.backgroundBtn{
+/*.backgroundBtn{
   border:5px solid #0678BE;
   border-radius: 5px;
-  margin:10px;
   height: 125px;
-}
+}*/
 .backgroundBtn button{
   margin-top: 20px;
 }
 
-  
+.loginWrapper input{
+  border-radius: 6px;
+}
+.form-group label{
+  margin-right:10px;
+}
+
+.loginWrapper button{
+  margin-top:10px;
+  margin-bottom:20px;
+}
+.header{
+  margin-bottom: 20px;
+}
 
 
 
