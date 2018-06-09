@@ -17,6 +17,7 @@ class Home extends Component {
 
 		this.handleClick = this.handleClick.bind(this);
 		this.outboundRequest = this.outboundRequest.bind(this);
+		this.configureDD = this.configureDD.bind(this);
 	}
 	
 	handleClick() {
@@ -34,6 +35,7 @@ class Home extends Component {
 	}
 	configureDD(){
 		console.log("configure Dock Door");
+		this.props.props.history.push("./configure");
 	}
 
 	checkAdmin(){
@@ -47,7 +49,7 @@ class Home extends Component {
 	}
 
   render() {
-  	if(this.props.auth){
+  	if(localStorage.userType === "admin" || localStorage.userType === "norm"){
 	    return (
 	        <div className="home row">
 					<div className="col-sm-6 backgroundBtn">
@@ -56,7 +58,7 @@ class Home extends Component {
 					<div className="col-sm-6 backgroundBtn">
 						<button className="outboundBtn homeBtn btn" onClick={this.outboundRequest}>Outbound</button>
 					</div>
-					
+
 					{this.checkAdmin()}
 	        </div>
 	    );

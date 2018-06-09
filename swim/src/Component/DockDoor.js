@@ -1,18 +1,47 @@
 import React from 'react';
 import ASNSearch from './ASNSearch';
 import ASNDisplay from './ASNDisplay';
+import axios from 'axios';
 
 class DockDoor extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			selectDoor: 0
-
+			selectDoor: 0,
+			dockDoors: []
 		}
 	}
 
    selected = (selection) => (event) => {
    	this.setState({[selection]: event.target.value })
+   }
+
+   componentDidMount(){
+	var dockDoors = [];
+
+   	console.log("checking for dock doors");
+   	axios({
+			method: 'get',
+			headers: {"Access-Control-Allow-Origin": "*"},
+			url: "http://localhost:8081/getDockDoor"
+		}).then(results =>{
+			results.data.forEach((element, index)=>{
+				let num = element.dockDoorNumber;
+				console.log(num);
+				dockDoors.push(
+					<option value={num}>{num}</option>
+					);
+				console.log("index ", index, "element", element)
+				if (index == results.data.length-1) {
+
+					console.log(results.data.length);
+					this.setState({
+						dockDoors: dockDoors
+					});
+				}
+			});
+				
+		});
    }
 
    render() {
@@ -23,10 +52,7 @@ class DockDoor extends React.Component {
 		      	<label>Select Dock Door: </label>
 		      		<select onChange={this.selected('selectDoor')}>
 		      			<option value="0">Select</option>
-		      			<option value="1">1</option>
-					    <option value="2">2</option>
-					    <option value="3">3</option>
-					    <option value="4">4</option>
+		      			{this.state.dockDoors}
 		      		</select>
 		      		<ASNSearch doorNumber={this.state.selectDoor}/>
 		      		

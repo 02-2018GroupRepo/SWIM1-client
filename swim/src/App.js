@@ -6,6 +6,7 @@ import DockDoor from './Component/DockDoor';
 import ASNSearch from './Component/ASNSearch';
 import ASNDisplay from './Component/ASNDisplay';
 import ASNReceived from './Component/ASNReceived';
+import Admin from './Component/Admin';
 
 import Login from './Component/Login.js'
 
@@ -44,6 +45,7 @@ class App extends Component {
         <Route exact path="/outbound" component={ASNReceived} />
         <Route exact path="/serial" component={Loaded} />
         <Route exact path= "/dataSaved" component={SavedPage} />
+        <Route exact path= "/configure" component={Admin} />
         <Route path="/" component={Footer} />
       </div>
     );
