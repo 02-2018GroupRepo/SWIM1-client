@@ -7,7 +7,8 @@ class Admin extends Component{
 		this.state = {
 			dockDoors:[]
 		}
-
+		this.deleteDockDoor = this.deleteDockDoor.bind(this);
+		this.addNew = this.addNew.bind(this);
 	}
 
 	componentDidMount(){
@@ -25,7 +26,7 @@ class Admin extends Component{
 				dockDoors.push(
 					<tr key={index}>
 						<td>{num}</td>
-						<td><button onClick={this.deleteDockDoor} value={num}>Delete</button></td>
+						<td><button className = "btn btn-default" onClick={this.deleteDockDoor} value={num}>Delete</button></td>
 					</tr>
 					);
 				if (index == results.data.length-1) {
@@ -52,14 +53,15 @@ class Admin extends Component{
 			}
    		}).then(results =>{
    			console.log(results.data);
-
+   			this.componentDidMount();
    		})
 
    }
 
    addNew(event){
    	event.preventDefault();
-   	let newNum = document.getElementById("newNum");
+   	let newNum = document.getElementById("newNum").value;
+   	console.log(document.getElementById("newNum").value);
    	axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
@@ -69,6 +71,7 @@ class Admin extends Component{
 			}
    		}).then(results =>{
    			console.log(results.data);
+   			this.componentDidMount();
    		})
    }
 
@@ -88,9 +91,7 @@ class Admin extends Component{
 					<button type="submit" className="btn btn-default">Add</button>
 				</form>
 				</div>
-				<div>
-					<button className="btn btn-default" onClick={this.componentDidMount()}>Refresh</button>
-				</div>
+				
 			</div>
 			)
 	}
