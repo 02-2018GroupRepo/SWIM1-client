@@ -66,10 +66,10 @@
 }
 .homeBtn{
   font-size: 50px;
-  background-color: #FFFFF0;
+  background-color: #F5F5F5;
   color: #024771;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  border-radius: 50px;
+  border-radius: 15px;
   width: 350px;
   height: 100px;
   border: 2px solid #024771;
@@ -138,5 +138,13 @@
   margin-bottom: 20px;
 }
 
+.logoutLink{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 20px;
+  margin-top:60px;
+}
 
+.logoutLink a{
+  color:#0678BE;
+}
 

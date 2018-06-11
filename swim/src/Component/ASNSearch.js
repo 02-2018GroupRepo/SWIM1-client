@@ -19,7 +19,11 @@ class ASNSearch extends React.Component {
       axios({
          method: 'post',
          headers: {"Access-Control-Allow-Origin": "*"},
+<<<<<<< Updated upstream
          url: "35.237.202.1:8081/getSerial",
+=======
+         url: "http://localhost:8081/getSerial",
+>>>>>>> Stashed changes
          data: {
             asn,
             dockDoor: this.props.doorNumber

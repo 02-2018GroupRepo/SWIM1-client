@@ -87,7 +87,11 @@ class Loaded extends React.Component {
 		axios({
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
+<<<<<<< Updated upstream
         url: "35.237.202.1:8081/statusChange",
+=======
+        url: "http://localhost:8081/statusChange",
+>>>>>>> Stashed changes
         data: {
            asn,
            dockDoor,

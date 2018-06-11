@@ -18,7 +18,11 @@ class ASNReceived extends React.Component {
 		axios({
 			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
+<<<<<<< Updated upstream
 			url: "35.237.202.1:8081/getSerial",
+=======
+			url: "http://localhost:8081/getSerial",
+>>>>>>> Stashed changes
 			data: {
 				asn: asn
 			}
@@ -37,7 +41,11 @@ class ASNReceived extends React.Component {
 		axios({
         method: 'get',
         headers: {"Access-Control-Allow-Origin": "*"},
+<<<<<<< Updated upstream
         url: "35.237.202.1:8081/getReceivedList"
+=======
+        url: "http://localhost:8081/getReceivedList"
+>>>>>>> Stashed changes
       }).then(results =>{
       	// console.log(results);
       	this.setState({

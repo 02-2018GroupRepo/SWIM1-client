@@ -16,7 +16,11 @@ class Login extends Component{
 
 		const loginRequest = axios({
 			method:"POST",
+<<<<<<< Updated upstream
 			url:"35.237.202.1:8081/login",
+=======
+			url:"http://localhost:8081/login",
+>>>>>>> Stashed changes
 			data:{
 				username,
 				pwd

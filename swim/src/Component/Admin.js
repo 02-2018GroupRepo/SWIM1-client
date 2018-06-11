@@ -18,7 +18,11 @@ class Admin extends Component{
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
+<<<<<<< Updated upstream
 			url: "35.237.202.1:8081/getDockDoor"
+=======
+			url: "http://localhost:8081/getDockDoor"
+>>>>>>> Stashed changes
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;
