@@ -59,7 +59,7 @@ class ASNSearch extends React.Component {
 	      		<input type="text" placeholder="Search.." id="asn" />
 	      		<button className="search-btn btn btn-sm btn-secondary" onClick= {this.handleRequest} >Search</button>
 	      	</form>
-	      	<ASNDisplay serialNumbers={this.state.serialNumbers} asn ={this.state.asn} dockDoor={this.props.doorNumber} /> 
+	      	<ASNDisplay props={this.props} serialNumbers={this.state.serialNumbers} asn ={this.state.asn} dockDoor={this.props.doorNumber} /> 
 	      	</div>
        
       );

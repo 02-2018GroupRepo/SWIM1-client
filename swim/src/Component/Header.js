@@ -20,7 +20,7 @@ class Header extends React.Component {
 	         	<p className="textStyle"> SWIM Dashboard</p>
 	         	</div>
 	         	<div className="col-sm-1 col-xs-12 navLinks">
-	         	<NavBar logOut={this.props.logOut} />
+	         	<NavBar logOut={this.props.logOut} props={this.props} />
 	         	</div>
 	         </div>
 	         	<hr className="divider" />
