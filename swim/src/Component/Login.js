@@ -11,7 +11,6 @@ class Login extends Component{
 
 	handleLogin(event){
 		event.preventDefault();
-		let loginData = "admin";
 		const username = document.getElementById("username").value;
 		const pwd = document.getElementById("pwd").value;
 
@@ -38,7 +37,10 @@ class Login extends Component{
 	}
 	render(){
 		console.log(this.props.auth);
-		if(!this.props.auth){
+		console.log(localStorage.userType);
+		if(localStorage.userType === "admin" || localStorage.userType === "norm"){
+			return (<div></div>)
+		}else if(!this.props.auth){
 			return(
 				<div className="col-sm-offset-4 col-sm-4 loginWrapper">
 					<div className="loginText">
