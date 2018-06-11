@@ -21,7 +21,8 @@ class ASNSearch extends React.Component {
          headers: {"Access-Control-Allow-Origin": "*"},
          url: "http://localhost:8080/getSerial",
          data: {
-            asn
+            asn,
+            dockDoor: this.props.doorNumber
          }
       }).then(results => {
          console.log(results);

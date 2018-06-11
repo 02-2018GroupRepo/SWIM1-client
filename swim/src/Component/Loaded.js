@@ -69,7 +69,7 @@ class Loaded extends React.Component {
 				status = "LOADED"
 			}
 			else{
-				status = "RECEIEVED"
+				status = "RECEIVED"
 			}
 			return {
 				serial: serial.serial,
