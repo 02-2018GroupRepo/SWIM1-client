@@ -82,6 +82,8 @@ class ASNDisplay extends React.Component {
            serials
         }
       })
+		console.log(this.props.props.props.props.history);
+		this.props.props.props.props.history.push('/');
 	}
 
 	formatData(){

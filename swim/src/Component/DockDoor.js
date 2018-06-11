@@ -55,6 +55,7 @@ class DockDoor extends React.Component {
 		      			{this.state.dockDoors}
 		      		</select>
 		      		<ASNSearch history={this.props.history} doorNumber={this.state.selectDoor}/>
+
 		      		
 	      	</form>
 	      	</div>

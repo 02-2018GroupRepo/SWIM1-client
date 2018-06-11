@@ -12,6 +12,7 @@ class NavBar extends Component{
 		console.log("logging out user");
 		console.log(this.props);
 		this.props.logOut();
+		this.props.props.props.history.push('/');
 	}
 	render(){
 		console.log("navbar", this.props);

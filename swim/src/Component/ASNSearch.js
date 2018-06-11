@@ -61,6 +61,8 @@ class ASNSearch extends React.Component {
 	      		<button className="search-btn btn btn-sm btn-secondary" onClick= {this.handleRequest} >Search</button>
 	      	</form>
 	      	<ASNDisplay history={this.props.history} serialNumbers={this.state.serialNumbers} asn ={this.state.asn} dockDoor={this.props.doorNumber} /> 
+
+
 	      	</div>
        
       );
