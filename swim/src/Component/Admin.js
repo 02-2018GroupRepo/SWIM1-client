@@ -18,7 +18,7 @@ class Admin extends Component{
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8081/getDockDoor"
+			url: "http://localhost:8080/getDockDoor"
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;

@@ -5,29 +5,48 @@ class SavedPage extends Component{
 
 	constructor(){
 		super();
+
+		// this.state ={
+		// 	show: false
+		// }
+
+		this.goSomewhere = this.goSomewhere.bind(this);
 	}
 
 
 	componentDidMount(){
-		setTimeout(()=>{this.props.history.push("/")}, 5000);
+		// setTimeout(()=>{this.props.history.push("/")}, 5000);
+	}
+
+	goSomewhere(event){
+		event.preventDefault();
+		// console.log(this.props)
+		this.props.history.push("/");
 	}
 
 	render(){
-		return(
-			<div className="static-modal">
-  <Modal.Dialog>
-    <Modal.Header>
-      <Modal.Title>Modal title</Modal.Title>
-    </Modal.Header>
 
-    <Modal.Body>One fine body...</Modal.Body>
+		let style = {
+			visibility : this.props.show ? "hidden" : null
+		}
 
-    <Modal.Footer>
-      <Button>Close</Button>
-      <Button bsStyle="primary">Save changes</Button>
-    </Modal.Footer>
-  </Modal.Dialog>
-  </div>
+		return(	
+			<div style={style} className="static-modal">
+  				<Modal.Dialog>
+
+    				<Modal.Header>
+      					<Modal.Title>Save Notification</Modal.Title>
+    				</Modal.Header>
+
+    				<Modal.Body>This data has been saved.</Modal.Body>
+
+    				<Modal.Footer>
+      					<Button onClick={this.goSomewhere}>Close</Button>
+    				</Modal.Footer>
+
+  				</Modal.Dialog>
+  			</div>
+ 
 
 		)
 	}

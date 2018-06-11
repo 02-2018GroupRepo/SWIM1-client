@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import SavedPage from './SavedPage';
 
 class ASNDisplay extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			checkBox: []
+			checkBox: [],
+			show: true
 		}
 		this.sendData = this.sendData.bind(this);
 		this.onChange = this.onChange.bind(this);
@@ -65,12 +67,15 @@ class ASNDisplay extends React.Component {
 				status: status
 			}
 		})
+		this.setState({
+			show: false
+		})
 
 
 		axios({
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
-        url: "http://localhost:8081/statusChange",
+        url: "http://localhost:8080/statusChange",
         data: {
            asn,
            dockDoor,
@@ -120,6 +125,7 @@ class ASNDisplay extends React.Component {
 	      			<button className= "saveBtn btn btn-secondary" onClick={this.sendData}>Save</button>
 	      			<button className="selectBtn btn " onClick={this.selectAll}>Select All</button>
 	      		</div>
+	      		<SavedPage history={this.props.history} show = {this.state.show}/>
 	      	</div>
    	
       );
