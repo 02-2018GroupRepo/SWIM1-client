@@ -54,7 +54,6 @@ class App extends Component {
         <Route exact path= "/receiving" component={(props)=> <DockDoor props={props}/>} />
         <Route exact path="/outbound" component={ASNReceived} />
         <Route exact path="/serial" component={Loaded} />
-        <Route exact path= "/dataSaved" component={SavedPage} />
         <Route exact path= "/configure" component={Admin} />
         <Route path="/" component={Footer} />
       </div>

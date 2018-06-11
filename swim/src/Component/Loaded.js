@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ASNDisplay from './ASNDisplay';
 import { Modal, Button } from 'react-bootstrap';
+import SavedPage from './SavedPage';
 
 class Loaded extends React.Component {
 	constructor(){
@@ -10,12 +11,12 @@ class Loaded extends React.Component {
 			checkBox: [],
 			serialNumbers: [],
 			details: "",
-			show: false
+			show: true
 		}
 		this.sendData = this.sendData.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.selectAll = this.selectAll.bind(this);
-		this.goSomewhere = this.goSomewhere.bind(this);
+		
 	}
 
 	onChange(e){
@@ -43,15 +44,15 @@ class Loaded extends React.Component {
 		for(let i = 0; i < this.state.serialNumbers.length; i++){
 			document.getElementById(this.state.serialNumbers[i].serial).checked = true;
 			if((checkBox.indexOf(Number(this.state.serialNumbers[i].serial) == -1) && (this.state.checkBox.length < this.state.serialNumbers.length))){
-				checkBox.push(this.state.serialNumbers[i].serial)
+				checkBox.push(Number(this.state.serialNumbers[i].serial))
 			}
 			// console.log("doing this");
 			// console.log(this.props.location.state.asn)
 		}
 		this.setState({
 			checkBox: checkBox,
-			show: true
-		})	
+		})
+		console.log(checkBox);	
 
 	}
 
@@ -68,7 +69,7 @@ class Loaded extends React.Component {
 				status = "LOADED"
 			}
 			else{
-				status = "RECEIEVED"
+				status = "RECEIVED"
 			}
 			return {
 				serial: serial.serial,
@@ -78,6 +79,9 @@ class Loaded extends React.Component {
 			console.log(status)
 		})
 		console.log(this.state.checkBox)
+		this.setState({
+			show: false
+		})
 
 
 		axios({
@@ -106,15 +110,6 @@ class Loaded extends React.Component {
 		)
 		
 	}
-
-	goSomewhere(event){
-		event.preventDefault();
-		this.setState({
-			show: false
-		})
-		this.props.history.push("/");
-	}
-
 	
 
    render() {
@@ -138,17 +133,7 @@ class Loaded extends React.Component {
 	      		<button onClick={this.sendData}>Save</button>
 	      		<button onClick={this.selectAll}>Select All</button>
 
-	      		<Modal> //show={this.state.show}>
-          <Modal.Header closeButton>
-            <Modal.Title>Information has been saved</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <h4>Data has been Loaded</h4>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.goSomewhere}>Close</Button>
-          </Modal.Footer>
-        </Modal>	
+	      	<SavedPage history={this.props.history} show = {this.state.show}/>	
 
 	      	</div>
    	
