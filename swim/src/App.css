@@ -51,6 +51,8 @@
 .footerDivider{
   height: 4px;
   background-color: #024771;
+  margin-top:0px;
+  margin-bottom:0px;
 }
 .textSize{
   font-size:8px;
@@ -87,13 +89,23 @@
   margin-right: 10px;
 }
 .footer{
-  position:absolute;
-  bottom:0;
+  z-index: 9999;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  height: 55px;
   width:100%;
 }
+/*#root{
+  margin-bottom:100px;
+}*/
+
+/*.bodyComponents{
+  min-height:70%;
+}*/
 .container{
   position: relative;
-  min-height: 100vh;
+  min-height:100vh;
 }
 .asn-search{
   margin-top:10px;
@@ -158,7 +170,6 @@
     font-size: 40px;
     margin-top:20px;
   }
-
 }
 
 @media screen and (max-width: 425px){
@@ -166,7 +177,15 @@
     font-size: 30px;
   }
  
+  .textTitle{
+    font-size: 8px;
+  }
 
+  .textSixe{
+    font-size: 6px;
+  }
+}
 
-
+.table{
+  margin-bottom: 75px;
 }
