@@ -18,7 +18,7 @@ class ASNReceived extends React.Component {
 		axios({
 			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8080/getSerial",
+			url: "http://localhost:8081/getSerial",
 			data: {
 				asn: asn
 			}

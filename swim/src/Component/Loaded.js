@@ -87,7 +87,7 @@ class Loaded extends React.Component {
 		axios({
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
-        url: "http://localhost:8080/statusChange",
+        url: "http://localhost:8081/statusChange",
         data: {
            asn,
            dockDoor,
