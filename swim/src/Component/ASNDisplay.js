@@ -75,6 +75,7 @@ class ASNDisplay extends React.Component {
 		axios({
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
+
         url: "http://localhost:8081/statusChange",
         data: {
            asn,
@@ -82,7 +83,7 @@ class ASNDisplay extends React.Component {
            serials
         }
       })
-		console.log(this.props.props.props.props.history);
+		console.log(this.props);
 		this.props.props.props.props.history.push('/');
 	}
 
@@ -90,8 +91,9 @@ class ASNDisplay extends React.Component {
 		let array = this.props.serialNumbers
 
 		return array.map((data, idx)=>
-			<tr key={idx}>
-				<td>{data.serial}</td>
+			<tr>
+				<th scope="row">{data.serial}</th>
+				<td>IN TRANSIT</td>
 				<td><input type="checkbox" className="checkbox-display" value={data.serial} id={data.serial} onClick={this.onChange}></input></td>
 			</tr>
 
@@ -112,20 +114,28 @@ class ASNDisplay extends React.Component {
 
    	}
 	      return (
-	      	<div style={styles} className="col-sm-12 text-center received-table">
-	      		<div className="col-sm-offset-5 col-sm-3 tableSerials text-center">
-	      		<table>
-	      			<tr>
-	      				<th>Serial No.</th>
-	      				<th>Received?</th>
-	      			</tr>
-	      			{this.formatData()}
-	      			
+	      	<div style={styles} className="col-sm-12 received-table">
+	      		<div className=" col-sm-offset-3 col-sm-6 col-xs-12">
+	      		<table className="table table-striped">
+	      			<thead>
+		      			<tr>
+		      				<th scope="col">Serial No.</th>
+		      				<th scope="col">Status</th>
+		      				<th scope="col">Received?</th>
+		      			</tr>
+		      		</thead>
+		      		<tbody>
+	      				{this.formatData()}
+	      				<tr>
+	      					<td scope="row"><button className= "buttonClass  btn btn-secondary" onClick={this.sendData}>Save</button></td>
+	      					<td></td>
+
+	      					<td><button className="buttonClass btn btn-secondary" onClick={this.selectAll}>Select All</button>
+
+	      					</td>
+	      				</tr> 
+	      			</tbody>
 	      		</table>
-	      		</div>
-	      		<div className="col-sm-12 buttonClass">
-	      			<button className= "saveBtn btn btn-secondary" onClick={this.sendData}>Save</button>
-	      			<button className="selectBtn btn " onClick={this.selectAll}>Select All</button>
 	      		</div>
 	      		<SavedPage history={this.props.history} show = {this.state.show}/>
 	      	</div>

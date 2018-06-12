@@ -56,6 +56,7 @@ class App extends Component {
         <Route exact path="/serial" component={Loaded} />
         <Route exact path= "/configure" component={Admin} />
         <Route path="/" component={Footer} />
+        
       </div>
     );
   }

@@ -55,7 +55,6 @@ class DockDoor extends React.Component {
   }
 
    render() {
-   	   
 	      return (
 	      	<div className="dock-door">
 	      	<button className="backBtn" onClick={this.redirectToTarget()}>Back</button>
@@ -67,6 +66,7 @@ class DockDoor extends React.Component {
 		      		</select>
 
 		      		<ASNSearch history={this.props.history} doorNumber={this.state.selectDoor}/>
+
 
 
 		      		
