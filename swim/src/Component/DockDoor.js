@@ -2,14 +2,19 @@ import React from 'react';
 import ASNSearch from './ASNSearch';
 import ASNDisplay from './ASNDisplay';
 import axios from 'axios';
+import {BrowserRouter} from 'react-router';
+
 
 class DockDoor extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			selectDoor: 0,
-			dockDoors: []
+			dockDoors: [],
+			redirect: false
 		}
+		this.redirectToTarget=this.redirectToTarget.bind(this);
+		
 	}
 
    selected = (selection) => (event) => {
@@ -43,18 +48,28 @@ class DockDoor extends React.Component {
 				
 		});
    }
+  redirectToTarget = () => {
+  	
+  	this.props.history.push('/')
+  	
+  }
 
    render() {
    	   
 	      return (
 	      	<div className="dock-door">
+	      	<button className="backBtn" onClick={this.redirectToTarget()}>Back</button>
 	      	<form>
 		      	<label>Select Dock Door: </label>
 		      		<select onChange={this.selected('selectDoor')}>
 		      			<option value="0">Select</option>
 		      			{this.state.dockDoors}
 		      		</select>
+
 		      		<ASNSearch history={this.props.history} doorNumber={this.state.selectDoor}/>
+
+
+		      		
 
 		      		
 	      	</form>
