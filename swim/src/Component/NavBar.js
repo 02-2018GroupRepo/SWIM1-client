@@ -20,6 +20,7 @@ class NavBar extends Component{
 		if(localStorage.userType === "admin" || localStorage.userType === "norm"){
 		return(
 			<div className = "logoutLink">
+				<Link to="/" className='homeLink'>Home</Link>
 				<Link to="/" onClick={this.handleLogout}>Logout</Link>
 			</div>
 		)

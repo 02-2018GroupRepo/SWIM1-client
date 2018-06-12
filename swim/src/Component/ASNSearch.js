@@ -19,7 +19,7 @@ class ASNSearch extends React.Component {
       axios({
          method: 'post',
          headers: {"Access-Control-Allow-Origin": "*"},
-         url: "http://localhost:8081/getSerial",
+         url: "http://35.237.202.1:8081/getSerial",
          data: {
             asn,
             dockDoor: this.props.doorNumber
@@ -45,13 +45,7 @@ class ASNSearch extends React.Component {
 
    	}
 
-         // setTimeout(() => {
-         //    console.log(this.state.serialNumbers)
-         // }, 5000)
-
-         // console.log(this.state.serialNumbers)
-      
-   	
+         	
    
 	      return (
 	      	<div style={styles} className="asn-search">

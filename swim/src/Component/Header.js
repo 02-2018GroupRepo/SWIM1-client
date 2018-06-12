@@ -16,10 +16,10 @@ class Header extends React.Component {
 	         	<div className="col-md-1 col-xs-3 logo">
 	         		<Link to = "/"><img className= "logoImg" src={swim} /></Link>
 	         	</div>
-	         	<div className="col-md-10 col-xs-9 pageTitle">
+	         	<div className="col-md-9 col-xs-9 pageTitle">
 	         	<p className="textStyle">SWIM Dashboard</p>
 	         	</div>
-	         	<div className="col-md-1 col-xs-12 navLinks">
+	         	<div className="col-md-2 col-xs-12 navLinks">
 	         	<NavBar logOut={this.props.logOut} props={this.props} />
 	         	</div>
 	         </div>

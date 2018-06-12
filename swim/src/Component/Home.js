@@ -21,8 +21,8 @@ class Home extends Component {
 	}
 	
 	handleClick() {
-		console.log(this.props.props.history)
-		this.props.props.history.push("./receiving");
+		console.log(this.props.history)
+		this.props.history.push("./receiving");
 		this.setState({
 			clicked: true,
 			show: false
@@ -31,11 +31,11 @@ class Home extends Component {
 		});
 	}
 	outboundRequest(){
-		this.props.props.history.push("./outbound")
+		this.props.history.push("./outbound")
 	}
 	configureDD(){
 		console.log("configure Dock Door");
-		this.props.props.history.push("./configure");
+		this.props.history.push("./configure");
 	}
 
 	checkAdmin(){

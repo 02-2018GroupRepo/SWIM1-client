@@ -50,7 +50,7 @@ class App extends Component {
       <div className="container App">
         <Route path="/" component={(props)=> <Header props={props} logOut={this.loggingOut}/>} />
         <Route path="/" component={ (props)=> <Login props={props} auth={this.state.isAuth} isAuth={this._isAuth} />} />
-        <Route exact path="/" component={(props)=> <Home props={props} auth={this.state.isAuth} />} />
+        <Route exact path="/" component={(props)=> <Home history={props.history} auth={this.state.isAuth} />} />
         <Route exact path= "/receiving" component={DockDoor}/>
         <Route exact path="/outbound" component={ASNReceived} />
         <Route exact path="/serial" component={Loaded} />
