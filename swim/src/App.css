@@ -101,15 +101,8 @@
 .asn-search input{
   margin-right:10px;
 }
-.saveBtn{
-  margin:5px;
-}
-.selectBtn{
-  margin: 5px;
-}
 .buttonClass{
-  margin-top: 10px;
-  border: 5px ;
+  margin:5px;
 }
 .tableSerials{
   margin-top: 10px;
@@ -129,7 +122,12 @@
 .form-group label{
   margin-right:10px;
 }
-
+.addDoorForm input{
+  border-radius: 6px;
+}
+.addDoorForm label{
+  margin-right:10px;
+}
 .loginWrapper button{
   margin-top:10px;
   margin-bottom:20px;
@@ -148,3 +146,27 @@
   color:#0678BE;
 }
 
+@media screen and (max-width: 1100px){
+  .logoutLink{
+    margin-top: 0px;
+  }
+}
+
+
+@media screen and (max-width: 625px){
+  .pageTitle{
+    font-size: 40px;
+    margin-top:20px;
+  }
+
+}
+
+@media screen and (max-width: 425px){
+  .pageTitle{
+    font-size: 30px;
+  }
+ 
+
+
+
+}

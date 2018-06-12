@@ -75,18 +75,15 @@ class ASNDisplay extends React.Component {
 		axios({
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
-<<<<<<< Updated upstream
-        url: "35.237.202.1:8081/statusChange",
-=======
+
         url: "http://localhost:8081/statusChange",
->>>>>>> Stashed changes
         data: {
            asn,
            dockDoor,
            serials
         }
       })
-		console.log(this.props.props.props.props.history);
+		console.log(this.props);
 		this.props.props.props.props.history.push('/');
 	}
 
@@ -95,7 +92,7 @@ class ASNDisplay extends React.Component {
 
 		return array.map((data, idx)=>
 			<tr>
-				<th scrope="row">{data.serial}</th>
+				<th scope="row">{data.serial}</th>
 				<td>IN TRANSIT</td>
 				<td><input type="checkbox" className="checkbox-display" value={data.serial} id={data.serial} onClick={this.onChange}></input></td>
 			</tr>
@@ -118,7 +115,7 @@ class ASNDisplay extends React.Component {
    	}
 	      return (
 	      	<div style={styles} className="col-sm-12 received-table">
-	      		<div className="col-sm-offset-4 col-sm-4">
+	      		<div className=" col-sm-offset-3 col-sm-6 col-xs-12">
 	      		<table className="table table-striped">
 	      			<thead>
 		      			<tr>
@@ -130,10 +127,10 @@ class ASNDisplay extends React.Component {
 		      		<tbody>
 	      				{this.formatData()}
 	      				<tr>
-	      					<td scope="row"><button className= "buttonClass saveBtn btn btn-secondary" onClick={this.sendData}>Save</button></td>
+	      					<td scope="row"><button className= "buttonClass  btn btn-secondary" onClick={this.sendData}>Save</button></td>
 	      					<td></td>
 
-	      					<td><button className="buttonClass selectBtn btn " onClick={this.selectAll}>Select All</button>
+	      					<td><button className="buttonClass btn btn-secondary" onClick={this.selectAll}>Select All</button>
 
 	      					</td>
 	      				</tr> 

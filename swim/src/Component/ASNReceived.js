@@ -18,11 +18,7 @@ class ASNReceived extends React.Component {
 		axios({
 			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-<<<<<<< Updated upstream
-			url: "35.237.202.1:8081/getSerial",
-=======
 			url: "http://localhost:8081/getSerial",
->>>>>>> Stashed changes
 			data: {
 				asn: asn
 			}
@@ -41,11 +37,7 @@ class ASNReceived extends React.Component {
 		axios({
         method: 'get',
         headers: {"Access-Control-Allow-Origin": "*"},
-<<<<<<< Updated upstream
-        url: "35.237.202.1:8081/getReceivedList"
-=======
         url: "http://localhost:8081/getReceivedList"
->>>>>>> Stashed changes
       }).then(results =>{
       	// console.log(results);
       	this.setState({
@@ -57,7 +49,7 @@ class ASNReceived extends React.Component {
 
       return array.map((data, idx)=>
 			<tr key={idx}>
-				<td><button onClick={this.viewSerials} value={data.asn}>{data.asn}</button></td>
+				<td scope="row"><button className = "buttonClass btn btn-secondary" onClick={this.viewSerials} value={data.asn}>{data.asn}</button></td>
 			</tr>
 
 		)
@@ -78,12 +70,19 @@ class ASNReceived extends React.Component {
 
 	      return (
 	      	<div className="asn-page">
-	      		<h1>Select a received ASN:</h1>
-
-	      		<table>
-	      			{this.getAsn()}
-	      		</table>
-
+	      		<h3>Please select the ASN to be loaded.</h3>
+	      		<div className="col-sm-offset-4 col-sm-4">
+		      		<table className="table table-striped">
+		      			<thead>
+		      				<tr>
+		      					<th scope="col">Received ASN #'s</th>
+		      				</tr>
+		      			</thead>
+		      			<tbody>
+			      			{this.getAsn()}
+						</tbody>
+		      		</table>
+		      	</div>
 	      	
 	      	</div>
        
