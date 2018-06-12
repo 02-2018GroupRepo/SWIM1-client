@@ -3,6 +3,7 @@ import ASNSearch from './ASNSearch';
 import ASNDisplay from './ASNDisplay';
 import axios from 'axios';
 import {BrowserRouter} from 'react-router';
+import BackButton from './BackButton';
 
 
 class DockDoor extends React.Component {
@@ -28,7 +29,7 @@ class DockDoor extends React.Component {
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8081/getDockDoor"
+			url: "http://35.237.202.1:8081/getDockDoor"
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;
@@ -53,8 +54,7 @@ class DockDoor extends React.Component {
    render() {
 	      return (
 	      	<div className="dock-door">
-	      	
-	      	<form>
+	        	<form>
 		      	<label>Select Dock Door: </label>
 		      		<select onChange={this.selected('selectDoor')}>
 		      			<option value="0">Select</option>

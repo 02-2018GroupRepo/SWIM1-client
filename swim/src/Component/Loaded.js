@@ -3,6 +3,7 @@ import axios from 'axios';
 import ASNDisplay from './ASNDisplay';
 import { Modal, Button } from 'react-bootstrap';
 import SavedPage from './SavedPage';
+import BackButton from './BackButton';
 
 class Loaded extends React.Component {
 	constructor(){
@@ -87,7 +88,7 @@ class Loaded extends React.Component {
 		axios({
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
-        url: "http://localhost:8081/statusChange",
+        url: "http://35.237.202.1:8081/statusChange",
         data: {
            asn,
            dockDoor,
@@ -103,7 +104,7 @@ class Loaded extends React.Component {
 
 		return array.map((data, idx)=>
 			<tr key={idx}>
-				<th scope="row">{data.serial}</th>
+				<th scope="row" className="text-center">{data.serial}</th>
 				<td><input type="checkbox" id={data.serial} value={data.serial} onClick={this.onChange}></input></td>
 			</tr>
 
@@ -125,8 +126,8 @@ class Loaded extends React.Component {
 		      		<table className="table table-striped">
 		      			<thead>
 			      			<tr>
-			      				<th scope="col">Serial No.</th>
-			      				<th scope="col">Loaded?</th>
+			      				<th scope="col" className="text-center">Serial No.</th>
+			      				<th scope="col" className="text-center">Loaded?</th>
 			      			</tr>
 			      		</thead>
 			      		<tbody>
@@ -137,6 +138,8 @@ class Loaded extends React.Component {
 		      				</tr>
 			      		</tbody>
 		      		</table>
+		      		<div className='footer-margin'><BackButton history={this.props.history}/>
+		      		</div>
 		      	</div>
 
 	      	<SavedPage history={this.props.history} show = {this.state.show}/>	

@@ -18,14 +18,14 @@ class Admin extends Component{
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8081/getDockDoor"
+			url: "http://35.237.202.1:8081/getDockDoor"
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;
 				console.log(num);
 				dockDoors.push(
 					<tr key={index}>
-						<th scope="row">{num}</th>
+						<th scope="row" className="text-center">{num}</th>
 						<td><button className = "buttonClass btn-sm btn btn-secondary" onClick={this.deleteDockDoor} value={num}>Delete</button></td>
 					</tr>
 					);
@@ -47,7 +47,7 @@ class Admin extends Component{
    		axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "35.237.202.1:8081/deleteDockDoor",
+			url: "http://35.237.202.1:8081/deleteDockDoor",
 			data: {
 				dockDoorNumber: door
 			}
@@ -65,7 +65,7 @@ class Admin extends Component{
    	axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "35.237.202.1:8081/addDockDoor",
+			url: "http://35.237.202.1:8081/addDockDoor",
 			data: {
 				dockDoorNumber: newNum
 			}
@@ -84,7 +84,7 @@ class Admin extends Component{
 					<table className="table table-striped">
 						<thead>
 							<tr>
-								<th scope="col">Dock Door Number</th>
+								<th scope="col" className="text-center">Dock Door Number</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -92,7 +92,7 @@ class Admin extends Component{
 						</tbody>
 					</table>
 				</div>
-				<div className = "col-sm-12 addDoorForm">
+				<div className = "col-sm-12 addDoorForm footer-margin">
 				<form onSubmit={this.addNew}>
 					<label htmlFor="newNum">Add New Dock Door: </label>
 					<br/>

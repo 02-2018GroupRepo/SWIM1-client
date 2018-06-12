@@ -76,7 +76,7 @@ class ASNDisplay extends React.Component {
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
 
-        url: "http://localhost:8081/statusChange",
+        url: "http://35.237.202.1:8081/statusChange",
         data: {
            asn,
            dockDoor,
@@ -90,21 +90,24 @@ class ASNDisplay extends React.Component {
 	formatData(){
 		let array = this.props.serialNumbers
 
-		return array.map((data, idx)=>
+	return array.map((data, idx)=> 
 			<tr>
-				<th scope="row">{data.serial}</th>
+				<th scope="row" className="text-center">{data.serial}</th>
 				<td>IN TRANSIT</td>
 				<td><input type="checkbox" className="checkbox-display" value={data.serial} id={data.serial} onClick={this.onChange}></input></td>
 			</tr>
 
 		)
-		// console.log(this.state.checkBox);
+		
 	}
 	  
 
    render() {
    	var styles = {
    		visibility: 'hidden'
+   	}
+   	var center = {
+   		'text-align': 'center'
    	}
    	let {asn} = this.props;
    	let {asnDisplay} = this.props;
@@ -116,12 +119,12 @@ class ASNDisplay extends React.Component {
 	      return (
 	      	<div style={styles} className="col-sm-12 received-table">
 	      		<div className=" col-sm-offset-3 col-sm-6 col-xs-12">
-	      		<table className="table table-striped">
+	      		<table className="table table-striped footer-margin">
 	      			<thead>
 		      			<tr>
-		      				<th scope="col">Serial No.</th>
-		      				<th scope="col">Status</th>
-		      				<th scope="col">Received?</th>
+		      				<th scope="col" className="text-center">Serial No.</th>
+		      				<th scope="col" className="text-center">Status</th>
+		      				<th scope="col" className="text-center">Received?</th>
 		      			</tr>
 		      		</thead>
 		      		<tbody>

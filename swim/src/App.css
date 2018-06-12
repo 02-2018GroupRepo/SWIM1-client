@@ -186,6 +186,10 @@
   }
 }
 
-.table{
+.footer-margin{
   margin-bottom: 75px;
+}
+
+.homeLink{
+  padding-right: 30px;
 }
