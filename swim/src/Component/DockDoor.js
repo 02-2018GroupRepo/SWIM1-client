@@ -13,7 +13,7 @@ class DockDoor extends React.Component {
 			dockDoors: [],
 			redirect: false
 		}
-		this.redirectToTarget=this.redirectToTarget.bind(this);
+		
 		
 	}
 
@@ -48,16 +48,12 @@ class DockDoor extends React.Component {
 				
 		});
    }
-  redirectToTarget = () => {
-  	
-  	this.props.history.push('/')
-  	
-  }
+  
 
    render() {
 	      return (
 	      	<div className="dock-door">
-	      	<button className="backBtn" onClick={this.redirectToTarget()}>Back</button>
+	      	
 	      	<form>
 		      	<label>Select Dock Door: </label>
 		      		<select onChange={this.selected('selectDoor')}>
