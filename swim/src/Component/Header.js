@@ -13,13 +13,13 @@ class Header extends React.Component {
 
         <div className="header row">
         	<div className="row">
-	         	<div className="col-sm-1 logo">
+	         	<div className="col-md-1 col-xs-3 logo">
 	         		<Link to = "/"><img className= "logoImg" src={swim} /></Link>
 	         	</div>
-	         	<div className="col-sm-10 col-xs-11 pageTitle">
-	         	<p className="textStyle"> SWIM Dashboard</p>
+	         	<div className="col-md-10 col-xs-9 pageTitle">
+	         	<p className="textStyle">SWIM Dashboard</p>
 	         	</div>
-	         	<div className="col-sm-1 col-xs-12 navLinks">
+	         	<div className="col-md-1 col-xs-12 navLinks">
 	         	<NavBar logOut={this.props.logOut} props={this.props} />
 	         	</div>
 	         </div>

@@ -52,10 +52,10 @@ class Home extends Component {
   	if(localStorage.userType === "admin" || localStorage.userType === "norm"){
 	    return (
 	        <div className="home row">
-					<div className="col-sm-6 backgroundBtn">
+					<div className="col-md-offset-1 col-md-5 backgroundBtn">
 						<button className="receiveBtn homeBtn btn" onClick={this.handleClick}>Receiving</button>
 					</div>
-					<div className="col-sm-6 backgroundBtn">
+					<div className="col-md-5 backgroundBtn">
 						<button className="outboundBtn homeBtn btn" onClick={this.outboundRequest}>Outbound</button>
 					</div>
 

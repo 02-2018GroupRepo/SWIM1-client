@@ -51,6 +51,8 @@
 .footerDivider{
   height: 4px;
   background-color: #024771;
+  margin-top:0px;
+  margin-bottom:0px;
 }
 .textSize{
   font-size:8px;
@@ -66,10 +68,10 @@
 }
 .homeBtn{
   font-size: 50px;
-  background-color: #FFFFF0;
+  background-color: #F5F5F5;
   color: #024771;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  border-radius: 50px;
+  border-radius: 15px;
   width: 350px;
   height: 100px;
   border: 2px solid #024771;
@@ -87,13 +89,23 @@
   margin-right: 10px;
 }
 .footer{
-  position:absolute;
-  bottom:0;
+  z-index: 9999;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  height: 55px;
   width:100%;
 }
+/*#root{
+  margin-bottom:100px;
+}*/
+
+/*.bodyComponents{
+  min-height:70%;
+}*/
 .container{
   position: relative;
-  min-height: 100vh;
+  min-height:100vh;
 }
 .asn-search{
   margin-top:10px;
@@ -101,15 +113,8 @@
 .asn-search input{
   margin-right:10px;
 }
-.saveBtn{
-  margin:5px;
-}
-.selectBtn{
-  margin: 5px;
-}
 .buttonClass{
-  margin-top: 10px;
-  border: 5px ;
+  margin:5px;
 }
 .tableSerials{
   margin-top: 10px;
@@ -129,7 +134,12 @@
 .form-group label{
   margin-right:10px;
 }
-
+.addDoorForm input{
+  border-radius: 6px;
+}
+.addDoorForm label{
+  margin-right:10px;
+}
 .loginWrapper button{
   margin-top:10px;
   margin-bottom:20px;
@@ -138,5 +148,44 @@
   margin-bottom: 20px;
 }
 
+.logoutLink{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 20px;
+  margin-top:60px;
+}
+
+.logoutLink a{
+  color:#0678BE;
+}
+
+@media screen and (max-width: 1100px){
+  .logoutLink{
+    margin-top: 0px;
+  }
+}
 
 
+@media screen and (max-width: 625px){
+  .pageTitle{
+    font-size: 40px;
+    margin-top:20px;
+  }
+}
+
+@media screen and (max-width: 425px){
+  .pageTitle{
+    font-size: 30px;
+  }
+ 
+  .textTitle{
+    font-size: 8px;
+  }
+
+  .textSixe{
+    font-size: 6px;
+  }
+}
+
+.table{
+  margin-bottom: 75px;
+}

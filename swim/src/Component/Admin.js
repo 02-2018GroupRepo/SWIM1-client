@@ -18,15 +18,15 @@ class Admin extends Component{
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8080/getDockDoor"
+			url: "http://localhost:8081/getDockDoor"
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;
 				console.log(num);
 				dockDoors.push(
 					<tr key={index}>
-						<td>{num}</td>
-						<td><button className = "btn btn-default" onClick={this.deleteDockDoor} value={num}>Delete</button></td>
+						<th scope="row">{num}</th>
+						<td><button className = "buttonClass btn-sm btn btn-secondary" onClick={this.deleteDockDoor} value={num}>Delete</button></td>
 					</tr>
 					);
 				if (index == results.data.length-1) {
@@ -47,7 +47,7 @@ class Admin extends Component{
    		axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8081/deleteDockDoor",
+			url: "35.237.202.1:8081/deleteDockDoor",
 			data: {
 				dockDoorNumber: door
 			}
@@ -65,7 +65,7 @@ class Admin extends Component{
    	axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8081/addDockDoor",
+			url: "35.237.202.1:8081/addDockDoor",
 			data: {
 				dockDoorNumber: newNum
 			}
@@ -80,15 +80,24 @@ class Admin extends Component{
 		return(
 			<div className = "row">
 				<h2>Dock doors in warehouse:</h2>
-				
-				<table>
-					{this.state.dockDoors}
-				</table>
-				<div className = "row">
+				<div className="col-sm-offset-4 col-sm-4">
+					<table className="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Dock Door Number</th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.state.dockDoors}
+						</tbody>
+					</table>
+				</div>
+				<div className = "col-sm-12 addDoorForm">
 				<form onSubmit={this.addNew}>
 					<label htmlFor="newNum">Add New Dock Door: </label>
+					<br/>
 					<input type="text" id="newNum" placeholder="23"/>
-					<button type="submit" className="btn btn-default">Add</button>
+					<button type="submit" className="btn btn-secondary buttonClass btn-sm">Add</button>
 				</form>
 				</div>
 				

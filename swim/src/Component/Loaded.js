@@ -87,7 +87,7 @@ class Loaded extends React.Component {
 		axios({
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
-        url: "http://localhost:8080/statusChange",
+        url: "http://localhost:8081/statusChange",
         data: {
            asn,
            dockDoor,
@@ -103,7 +103,7 @@ class Loaded extends React.Component {
 
 		return array.map((data, idx)=>
 			<tr key={idx}>
-				<td>{data.serial}</td>
+				<th scope="row">{data.serial}</th>
 				<td><input type="checkbox" id={data.serial} value={data.serial} onClick={this.onChange}></input></td>
 			</tr>
 
@@ -120,18 +120,24 @@ class Loaded extends React.Component {
    	}
 	      return (
 	      	<div className="received-table">
-	      		<table>
-	      			<tr>
-	      				<th>Serial No.</th>
-	      				<th>Received?</th>
-	      			</tr>
-	      			{this.receivedData()}
-
-	      			
-	      		</table>
-
-	      		<button onClick={this.sendData}>Save</button>
-	      		<button onClick={this.selectAll}>Select All</button>
+	      		<h3>ASN# {this.props.location.state.asn}</h3>
+	      		<div className="col-sm-offset-4 col-sm-4">
+		      		<table className="table table-striped">
+		      			<thead>
+			      			<tr>
+			      				<th scope="col">Serial No.</th>
+			      				<th scope="col">Loaded?</th>
+			      			</tr>
+			      		</thead>
+			      		<tbody>
+			      			{this.receivedData()}
+			      			<tr scope="row">
+		      					<td><button className="buttonClass btn btn-secondary" onClick={this.sendData}>Save</button></td>
+		      					<td><button className="buttonClass btn btn-secondary" onClick={this.selectAll}>Select All</button></td>
+		      				</tr>
+			      		</tbody>
+		      		</table>
+		      	</div>
 
 	      	<SavedPage history={this.props.history} show = {this.state.show}/>	
 

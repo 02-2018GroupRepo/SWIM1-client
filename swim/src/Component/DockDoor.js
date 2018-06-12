@@ -23,7 +23,7 @@ class DockDoor extends React.Component {
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://localhost:8080/getDockDoor"
+			url: "http://localhost:8081/getDockDoor"
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;
@@ -45,7 +45,6 @@ class DockDoor extends React.Component {
    }
 
    render() {
-   	   
 	      return (
 	      	<div className="dock-door">
 	      	<form>
@@ -54,7 +53,7 @@ class DockDoor extends React.Component {
 		      			<option value="0">Select</option>
 		      			{this.state.dockDoors}
 		      		</select>
-		      		<ASNSearch history={this.props.history} doorNumber={this.state.selectDoor}/>
+		      		<ASNSearch props={this.props} doorNumber={this.state.selectDoor}/>
 
 		      		
 	      	</form>
