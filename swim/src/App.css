@@ -167,6 +167,16 @@
   }
 }
 
+@media screen and (max-width: 725px){
+  .homeBtn{
+    width: 80%;
+
+  }
+  .configureBtn{
+    margin-bottom: 100px;
+  }
+}
+
 
 @media screen and (max-width: 625px){
   .pageTitle{

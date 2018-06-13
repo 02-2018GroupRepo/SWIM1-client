@@ -42,7 +42,7 @@ class Home extends Component {
 	if(localStorage.userType === "admin"){
 		return(
 					
-						<button className="homeBtn btn" onClick={this.configureDD}>Configure</button>
+						<button className="homeBtn btn configureBtn"  onClick={this.configureDD}>Configure</button>
 					
 			)
 		}
