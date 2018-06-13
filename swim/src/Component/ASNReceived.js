@@ -18,7 +18,7 @@ class ASNReceived extends React.Component {
 		axios({
 			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://35.237.202.1:8081/getSerial",
+			url: `${window.apiurl}/getSerial`,
 			data: {
 				asn: asn
 			}
@@ -37,7 +37,7 @@ class ASNReceived extends React.Component {
 		axios({
         method: 'get',
         headers: {"Access-Control-Allow-Origin": "*"},
-        url: "http://35.237.202.1:8081/getReceivedList"
+        url: `${window.apiurl}/getReceivedList`
       }).then(results =>{
       	// console.log(results);
       	this.setState({

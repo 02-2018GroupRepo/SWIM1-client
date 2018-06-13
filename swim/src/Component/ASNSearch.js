@@ -19,7 +19,7 @@ class ASNSearch extends React.Component {
       axios({
          method: 'post',
          headers: {"Access-Control-Allow-Origin": "*"},
-         url: "http://35.237.202.1:8081/getSerial",
+         url: `${window.apiurl}/getSerial`,
          data: {
             asn,
             dockDoor: this.props.doorNumber

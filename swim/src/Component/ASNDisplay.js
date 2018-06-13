@@ -76,7 +76,7 @@ class ASNDisplay extends React.Component {
         method: 'post',
         headers: {"Access-Control-Allow-Origin": "*"},
 
-        url: "http://35.237.202.1:8081/statusChange",
+        url: `${window.apiurl}/statusChange`,
         data: {
            asn,
            dockDoor,
