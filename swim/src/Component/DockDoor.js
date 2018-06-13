@@ -29,7 +29,7 @@ class DockDoor extends React.Component {
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "https://35.237.202.1:8081/getDockDoor"
+			url: `${window.apiurl}/getDockDoor`
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;

@@ -65,7 +65,7 @@ class Admin extends Component{
    	axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "https://35.237.202.1:8081/addDockDoor",
+			url: `${window.apiurl}/addDockDoor`,
 			data: {
 				dockDoorNumber: newNum
 			}
