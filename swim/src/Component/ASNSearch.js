@@ -48,7 +48,7 @@ class ASNSearch extends React.Component {
          	
    
 	      return (
-	      	<div style={styles} className="asn-search">
+	      	<div style={styles} className="asn-search asnInput">
 	      	<form>
 	      		<label>Enter an ASN: </label>
 	      		<input type="text" placeholder="Search.." id="asn" />

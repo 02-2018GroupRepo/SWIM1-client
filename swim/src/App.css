@@ -210,3 +210,6 @@
 .home img{
  width: 100%;
 }
+.asnInput input{
+  border-radius: 6px;
+}
