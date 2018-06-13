@@ -29,7 +29,7 @@ class DockDoor extends React.Component {
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://35.237.202.1:8081/getDockDoor"
+			url: "https://35.237.202.1:8081/getDockDoor"
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;
@@ -54,6 +54,9 @@ class DockDoor extends React.Component {
    render() {
 	      return (
 	      	<div className="dock-door">
+	      		<div className="col-sm-12">
+					<img src = "/boxes.gif"	/>
+				</div>
 	        	<form>
 		      	<label>Select Dock Door: </label>
 		      		<select onChange={this.selected('selectDoor')}>

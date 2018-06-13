@@ -16,7 +16,7 @@ class Login extends Component{
 
 		const loginRequest = axios({
 			method:"POST",
-			url:"http://35.237.202.1:8081/login",
+			url:"https://35.237.202.1:8081/login",
 			data:{
 				username,
 				pwd

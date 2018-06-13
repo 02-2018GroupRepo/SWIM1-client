@@ -18,7 +18,7 @@ class Admin extends Component{
    	axios({
 			method: 'get',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://35.237.202.1:8081/getDockDoor"
+			url: "https://35.237.202.1:8081/getDockDoor"
 		}).then(results =>{
 			results.data.forEach((element, index)=>{
 				let num = element.dockDoorNumber;
@@ -47,7 +47,7 @@ class Admin extends Component{
    		axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://35.237.202.1:8081/deleteDockDoor",
+			url: "https://35.237.202.1:8081/deleteDockDoor",
 			data: {
 				dockDoorNumber: door
 			}
@@ -65,7 +65,7 @@ class Admin extends Component{
    	axios({
    			method: 'post',
 			headers: {"Access-Control-Allow-Origin": "*"},
-			url: "http://35.237.202.1:8081/addDockDoor",
+			url: "https://35.237.202.1:8081/addDockDoor",
 			data: {
 				dockDoorNumber: newNum
 			}

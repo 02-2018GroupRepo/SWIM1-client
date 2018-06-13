@@ -41,9 +41,9 @@ class Home extends Component {
 	checkAdmin(){
 	if(localStorage.userType === "admin"){
 		return(
-					<div className="col-sm-12 backgroundBtn">
-						<button className="adminBtn homeBtn btn" onClick={this.configureDD}>Configure</button>
-					</div>
+					
+						<button className="homeBtn btn" onClick={this.configureDD}>Configure</button>
+					
 			)
 		}
 	}
@@ -52,14 +52,16 @@ class Home extends Component {
   	if(localStorage.userType === "admin" || localStorage.userType === "norm"){
 	    return (
 	        <div className="home row">
-					<div className="col-md-offset-1 col-md-5 backgroundBtn">
-						<button className="receiveBtn homeBtn btn" onClick={this.handleClick}>Receiving</button>
+					<div className="col-sm-12">
+					<img src = "/truck.gif"	/>
 					</div>
-					<div className="col-md-5 backgroundBtn">
-						<button className="outboundBtn homeBtn btn" onClick={this.outboundRequest}>Outbound</button>
+					<div className="backgroundBtn">
+						<button className="homeBtn btn" onClick={this.handleClick}>Receiving</button>
+						<button className="homeBtn btn" onClick={this.outboundRequest}>Outbound</button>
+					{this.checkAdmin()}
 					</div>
 
-					{this.checkAdmin()}
+					
 	        </div>
 	    );
 	}else{
