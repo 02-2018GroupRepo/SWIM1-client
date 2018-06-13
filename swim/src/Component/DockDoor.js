@@ -54,9 +54,7 @@ class DockDoor extends React.Component {
    render() {
 	      return (
 	      	<div className="dock-door">
-	      		<div className="col-sm-12">
-					<img src = "/boxes.gif"	/>
-				</div>
+	      		
 	        	<form>
 		      	<label>Select Dock Door: </label>
 		      		<select onChange={this.selected('selectDoor')}>
